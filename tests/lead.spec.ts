@@ -31,12 +31,12 @@ test('Handle_Dialogue_Message_Creating_New_Lead_TC_001', async ({ page }) => {
     await page.close();
 });
 
-test('Handle_Dialogue_Message_Existing_Lead_TC_002', async ({ page }) => {
+test('Handle_Delete_Confirm_Message_Existing_Lead_TC_002', async ({ page }) => {
     await page.goto('http://localhost:100/');
     loginPage = new LoginPage(page);
     homePage = new HomePage(page);
     leadPage = new LeadPage(page);
-    const testData = await readJson("./testdata/leadData.json", "Handle_Dialogue_Message_Existing_Lead_TC_002");
+    const testData = await readJson("./testdata/leadData.json", "Handle_Delete_Confirm_Message_Existing_Lead_TC_002");
     await loginPage.login(testData.username, testData.password);
     await homePage.clickLeads();
     await leadPage.findLastName(testData.lastname);

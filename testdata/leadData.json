@@ -8,7 +8,7 @@
     },
 
      {
-        "tcname": "Handle_Dialogue_Message_Existing_Lead_TC_002",
+        "tcname": "Handle_Delete_Confirm_Message_Existing_Lead_TC_002",
         "username":"admin",
         "password":"admin",
         "lastname": "Amitabh",
