@@ -11,7 +11,7 @@ let leadPage: LeadPage;
 
 test('Verify_title_TC01', async ({ page }) => {
   await page.goto('http://localhost:100/');
-  const testData = await readJson("Verify_title_TC01");
+  const testData = await readJson("./testdata/data.json","Verify_title_TC01");
   await expect(page).toHaveTitle(testData.title);
   await page.close();  
 });
@@ -27,7 +27,7 @@ test('Verify_logo_TC02', async ({ page }) => {
 test('Verify_invalidlogin_TC03', async ({ page }) => {
   await page.goto('http://localhost:100/');
   loginPage = new LoginPage(page);
-  const testData = await readJson("Verify_invalidlogin_TC03");
+  const testData = await readJson("./testdata/data.json","Verify_invalidlogin_TC03");
   await loginPage.login(testData.username, testData.password);
   const isErrorMessageDisplayed = await loginPage.isErrorMessageDisplayed();
   expect(isErrorMessageDisplayed).toBe(true);
@@ -37,7 +37,7 @@ test('Verify_invalidlogin_TC03', async ({ page }) => {
 test('Verify_validlogin_TC04', async ({ page }) => {
   await page.goto('http://localhost:100/');
   loginPage = new LoginPage(page);
-  const testData = await readJson("Verify_validlogin_TC04");
+  const testData = await readJson("./testdata/data.json","Verify_validlogin_TC04");
   await loginPage.login(testData.username, testData.password);
   homePage = new HomePage(page);
   const isWelcomeMsgDisplayed = await homePage.isWelcomeMsgDisplayed();
@@ -54,7 +54,7 @@ test('Verify_validlogin_TC04', async ({ page }) => {
 test('Verify_Create_NewLead_Mandatory_Fields_TC05', async ({ page }) => {
   await page.goto('http://localhost:100/');
   loginPage = new LoginPage(page);
-  const testData = await readJson("Verify_Create_NewLead_Mandatory_Fields_TC05");
+  const testData = await readJson("./testdata/data.json","Verify_Create_NewLead_Mandatory_Fields_TC05");
   await loginPage.login(testData.username, testData.password);
   await page.waitForTimeout(3000);
   homePage = new HomePage(page); 

@@ -10,7 +10,7 @@ test('Verify My Account Drag and Drop', async ({ page }) => {
   await page.goto('http://localhost:100/');
   loginPage = new LoginPage(page);
   homePage = new HomePage(page);
-  const testData = await readJson("Verify My Account Drag and Drop");
+  const testData = await readJson("./testdata/data.json","Verify My Account Drag and Drop");
   await loginPage.login(testData.username, testData.password);
   await homePage.clickMyAccount();
   await homePage.clickCustomise();
@@ -26,7 +26,7 @@ test('Verify Mouse Hover Link', async ({ page }) => {
   await page.goto('http://localhost:100/');
   loginPage = new LoginPage(page);
   homePage = new HomePage(page);
-  const testData = await readJson("Verify Mouse Hover Link");
+  const testData = await readJson("./testdata/data.json","Verify Mouse Hover Link");
   await loginPage.login(testData.username, testData.password);
   //await page.waitForTimeout(5000);
   await homePage.mouseHover();

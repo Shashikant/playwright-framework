@@ -1,0 +1,19 @@
+[
+    {
+        "tcname": "Handle_Dialogue_Message_Creating_New_Lead_TC_001",
+        "username":"admin",
+        "password":"admin",
+        "lastname": "Amitabh",
+        "company":"Lenovo"
+    },
+
+     {
+        "tcname": "Handle_Dialogue_Message_Existing_Lead_TC_002",
+        "username":"admin",
+        "password":"admin",
+        "lastname": "Amitabh",
+        "company":"Lenovo"
+    }
+    
+
+]
