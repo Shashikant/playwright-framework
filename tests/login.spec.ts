@@ -52,6 +52,7 @@ test('Verify_validlogin_TC04', async ({ page }) => {
 });
 
 test('Verify_Create_NewLead_Mandatory_Fields_TC05', async ({ page }) => {
+  test.slow();
   await page.goto('http://localhost:100/');
   loginPage = new LoginPage(page);
   const testData = await readJson("./testdata/data.json","Verify_Create_NewLead_Mandatory_Fields_TC05");
@@ -74,4 +75,15 @@ test('Verify_Create_NewLead_Mandatory_Fields_TC05', async ({ page }) => {
   const isLogoDisplayed = await loginPage.isLogoDisplayed();
   expect(isLogoDisplayed).toBe(true);
   await page.close();  
+});
+
+
+test('Verify invalid login', async ({ page }) => {
+  await page.goto('http://localhost:100/');
+  await expect(page.getByRole('img').nth(2)).toBeVisible();
+  await page.locator('input[name="user_name"]').fill('admin');
+  await page.locator('input[name="user_password"]').fill('admin123');
+  await page.locator('select[name="login_theme"]').selectOption('nature');
+  await page.getByRole('button', { name: 'Login' }).click();
+  await page.getByRole('cell', { name: 'You must specify a valid username and password. User Log-in User Name: admin Password: admin123 Theme: blue Language: US English Login', exact: true }).click();
 });
